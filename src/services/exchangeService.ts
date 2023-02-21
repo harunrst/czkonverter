@@ -1,9 +1,8 @@
 import { Currency } from "./models/Currency";
 import { ExchangeRate } from "./models/ExchangeRate";
 
-//todo: handle cors properly
 const exchangeRateUrl =
-  "https://cors-anywhere.herokuapp.com/https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt";
+  "https://api.allorigins.win/raw?url=https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt";
 
 export const getExchangeRates = async (): Promise<ExchangeRate[]> => {
   const response = await fetch(exchangeRateUrl);

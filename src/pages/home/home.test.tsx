@@ -4,6 +4,6 @@ import { getQueryComponent } from "../../common/utils";
 
 test("Renders Home", () => {
   render(getQueryComponent(<Home />));
-  const linkElement = screen.getByText(/CZKonverter/i);
+  const linkElement = screen.getByText(/CZK/);
   expect(linkElement).toBeInTheDocument();
 });
