@@ -2,6 +2,6 @@
 
 # CZKonverter
 
-<a href="https://github.com/harunrst/czkonverter/actions"><img alt="typescript-action status" src="https://github.com/harunrst/czkonverter/actions/workflows/build/badge.svg"></a>
+<a href="https://github.com/harunrst/czkonverter/actions"><img alt="typescript-action status" src="https://github.com/harunrst/czkonverter/actions/workflows/build.yml/badge.svg"></a>
 
 Just a demo application to try some cool frontend stuff.
