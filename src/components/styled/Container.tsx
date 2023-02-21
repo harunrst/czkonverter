@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 type ContainerProps = {
-  column?: Boolean;
+  column?: boolean;
 };
 
 const Container = styled.div`
