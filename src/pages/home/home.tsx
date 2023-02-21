@@ -12,7 +12,6 @@ import ContainerItem from "../../components/styled/ContainerItem";
 //todo: add webpack to bundle
 //todo: deploy to GCP as static website
 //todo: add integration tests
-//todo: add linter
 
 const Home = () => {
   const { error, data } = useQuery<ExchangeRate[], Error>(
