@@ -16,8 +16,15 @@ const paperStyles: CSSProperties = {
   flexWrap: "wrap",
 };
 
-const ExchangeRates = ({ exchangeRates }: { exchangeRates?: ExchangeRate[] }) =>
-  !exchangeRates ? (
+const ExchangeRates = ({
+  exchangeRates,
+  onRateSelect,
+}: {
+  exchangeRates?: ExchangeRate[];
+  onRateSelect: (selectedRate: ExchangeRate) => void;
+}) => {
+  const [selectedRate, setSelectedRate] = React.useState<string | null>(null);
+  return !exchangeRates ? (
     <RowLoader />
   ) : (
     exchangeRates && (
@@ -25,11 +32,24 @@ const ExchangeRates = ({ exchangeRates }: { exchangeRates?: ExchangeRate[] }) =>
         <Typography variant="h4" marginBottom={3}>
           Exchange Rates
         </Typography>
-        <Container style={paperStyles}>
+        <Container data-testid="exchangeRates" style={paperStyles}>
           {exchangeRates.map((exchangeRate) => (
+            //todo: definitely could be a new component
             <ListItemText
+              data-testid="exchangeRate"
               key={exchangeRate.currency.code}
-              style={{ width: "20%" }}
+              onClick={() => {
+                setSelectedRate(exchangeRate.currency.code);
+                onRateSelect(exchangeRate);
+              }}
+              style={{
+                width: "20%",
+                cursor: "pointer",
+                color:
+                  selectedRate === exchangeRate.currency.code
+                    ? "green"
+                    : "black",
+              }}
               primary={exchangeRate.currency.code}
               secondary={exchangeRate.value}
             />
@@ -38,5 +58,6 @@ const ExchangeRates = ({ exchangeRates }: { exchangeRates?: ExchangeRate[] }) =>
       </React.Fragment>
     )
   );
+};
 
 export default ExchangeRates;

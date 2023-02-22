@@ -1,6 +1,7 @@
+import { getExchangeRates } from "../mock/exchangeService.mock";
 import {
+  convertToCurrency,
   getCurrencies,
-  getExchangeRates,
   parseExchangeRates,
 } from "./exchangeService";
 
@@ -41,4 +42,12 @@ test("getCurrencies returns all currencies", async () => {
 
   //assert
   expect(currencies.length).toBe(exchangeRates.length);
+});
+
+test("convertToCurrency converts correctly", async () => {
+  //act
+  const convertedAmount = convertToCurrency(250, 22);
+
+  //assert
+  expect(convertedAmount).toBe(11.36);
 });

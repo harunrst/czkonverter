@@ -5,6 +5,7 @@ type ContainerItemProps = {
 };
 
 const ContainerItem = styled.div`
+  margin: 2%;
   flex: ${(props: ContainerItemProps) => props.flex / 12};
 `;
 

@@ -1,19 +1,33 @@
 import { render, screen } from "@testing-library/react";
 import { getQueryComponent } from "../../../common/utils";
-import { getExchangeRates } from "../../../services/exchangeService";
+import { getExchangeRates } from "../../../mock/exchangeService.mock";
 import ExchangeRates from "./exchangeRates";
 
 test("Renders exchange rates component", () => {
-  render(getQueryComponent(<ExchangeRates exchangeRates={[]} />));
-  const linkElement = screen.getByText(/Exchange Rates/);
+  //act
+  render(
+    getQueryComponent(
+      <ExchangeRates exchangeRates={[]} onRateSelect={() => {}} />
+    )
+  );
+
+  //assert
+  const linkElement = screen.getByTestId("exchangeRates");
   expect(linkElement).toBeInTheDocument();
 });
 
 test("Renders all exchange rates", async () => {
+  //arrange
   const exchangeRates = await getExchangeRates();
-  const { container } = render(
-    getQueryComponent(<ExchangeRates exchangeRates={exchangeRates} />)
+
+  //act
+  render(
+    getQueryComponent(
+      <ExchangeRates exchangeRates={exchangeRates} onRateSelect={() => {}} />
+    )
   );
-  const listLength = container.querySelectorAll("p").length;
+
+  //assert
+  const listLength = screen.getAllByTestId("exchangeRate").length;
   expect(listLength).toBe(exchangeRates.length);
 });
