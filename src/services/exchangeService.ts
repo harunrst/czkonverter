@@ -1,6 +1,8 @@
 import { Currency } from "./models/Currency";
 import { ExchangeRate } from "./models/ExchangeRate";
 
+//todo: could be a class with proper mocking
+
 const exchangeRateUrl =
   "https://thingproxy.freeboard.io/fetch/https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt";
 

@@ -9,7 +9,6 @@ import Converter from "./components/converter";
 import { useState } from "react";
 
 //todo: cover more with tests
-//todo: update readme
 //todo: add webpack to bundle
 //todo: deploy to GCP as static website
 //todo: add integration tests
